@@ -13,6 +13,8 @@
 </head>
 
 <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <div class="container">
         <!-- header -->
         <div class="row bg-dark text-light text-center">
@@ -24,7 +26,12 @@
         <!-- left search bar -->
         <div class="row">
             <div class="col-4 bg-primary">
-                1111111
+                <form>
+                    <label for= "city-input">Search for a City:</label>
+                    <input id="city-input" type="text">
+                    <input id="search-city" type="submit" value="search">
+                </form>
+                <div id = "city-list"></div>
             </div>
 
             <!-- right content section -->
@@ -36,7 +43,7 @@
                     </div>
                 </div>
 
-            <!-- bottom right  -->
+                <!-- bottom right  -->
                 <div class="row">
                     <div class="col-12">
                         44444
@@ -45,29 +52,8 @@
             </div>
 
         </div>
-
+    
     </div>
-
-
-
-    <!-- <div class="container">
-        <div class="row">
-          <div class="col-12">
-            Level 1: .col-sm-9
-            <div class="row">
-              <div class="col-4">
-                Level 2: .col-8 .col-sm-6
-              </div>
-              <div class="col-8">
-                Level 2: .col-4 .col-sm-6
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
-
-
 
 
     <script src="Assets/script.js"></script>
