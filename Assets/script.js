@@ -28,7 +28,6 @@ function showWeather() {
         url: queryURL,
         method: "GET"
     }).then(function (response) {
-        console.log(response)
         var highTemp = (response.main.temp_max * 9 / 5 - 459.67).toFixed(1);
         var lowTemp = (response.main.temp_min * 9/5 - 459.67).toFixed(1);
         $(".city").html('<h1>' + response.name + '</h1>');
@@ -36,9 +35,17 @@ function showWeather() {
         $(".wind").html("Wind Speed: " + (response.wind.speed * 2.236).toFixed(1) + " MPH")
         $(".humidity").html("Humidity: " + response.main.humidity + "%");
         
-        console.log("AJAX is called")
-        
-        
+        var lat = response.coord.lat;
+        var lon = response.coord.lon;
+        var coordURL = "https://api.openweathermap.org/data/2.5/onecall?lat="+lat+"&lon="+lon+"&exclude=current"+APIKey;
+        $.ajax({
+            url:coordURL,
+            method:"GET"
+        }).then(function(response){
+            console.log(response)
+            $(".UV").html("UV Index: " +response.daily[0].uvi);
+
+        })
     });
     
 }
